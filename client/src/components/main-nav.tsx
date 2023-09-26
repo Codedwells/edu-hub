@@ -5,7 +5,7 @@ import { ModeToggle } from './theme/theme-toggle'
 const MainNav = ({ classNames }: { classNames?: string }) => {
 	return (
 		<nav className={`${classNames}`}>
-			<ul className='flex select-none items-center justify-between p-2 px-8 shadow-md shadow-gray-200'>
+			<ul className='flex select-none items-center justify-between p-2 px-8 shadow-md shadow-gray-200 dark:border-b dark:shadow-none'>
 				<li>
 					<Link href='/' className='text-xl font-[600]'>
 						Edu Hub

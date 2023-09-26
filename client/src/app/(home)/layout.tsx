@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className='flex flex-col min-h-screen'>
         <MainNav/>
         {children}
-        <MainFooter className={'mt-auto border bg-neutral-100 text-center text-neutral-500 lg:text-left '} />
+        <MainFooter className={'mt-auto border bg-neutral-100 text-center text-neutral-500 lg:text-left dark:bg-transparent'} />
       </main>
     </>
   )
