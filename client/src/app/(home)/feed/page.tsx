@@ -1,5 +1,14 @@
+'use client'
+
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { LucidePackageSearch } from 'lucide-react'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger
+} from '@/components/ui/accordion'
 
 export default function Page() {
 	return (
@@ -13,8 +22,41 @@ export default function Page() {
 			</div>
 
 			<div className='mx-auto mt-[2rem] flex flex-col items-center justify-center gap-6 px-4 lg:w-[50%]'>
-				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_) => (
-					<FeedCard />
+				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((curr) => (
+					<FeedCard
+						key={curr}
+						question='This is my wonderful playground that I can ask right now'
+						answer='Here are the biggest enterprise technology
+							acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.ere are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.ere are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.ere are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.ere are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.ere are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.Here are the biggest enterprise
+							technology acquisitions of 2021 so far, in reverse
+							chronological order.
+'
+					/>
 				))}
 			</div>
 		</section>
@@ -67,21 +109,31 @@ const SeachBar = () => {
 	)
 }
 
-const FeedCard = () => {
+interface IFeedCardProps {
+	question: string
+	answer: string
+}
+const FeedCard = ({ question, answer }: IFeedCardProps) => {
+	const [isOpen, setIsOpen] = useState(false)
 	return (
-		<div className='flex flex-col justify-between  min-h-[15rem] w-full rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800'>
+		<div className='flex min-h-[15rem] w-full  flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800'>
 			<div>
 				<h5 className='mb-2 text-2xl font-bold tracking-tight text-emerald-600 dark:text-white'>
 					This is my random feed questions
 				</h5>
-
-				<p className='line-clamp-3 font-normal text-gray-700 dark:text-gray-400  md:line-clamp-5'>
-					Here are the biggest enterprise technology acquisitions of
-					2021 so far, in reverse chronological order.
-				</p>
+				<Accordion type='single' collapsible className='w-full'>
+					<AccordionItem value='item-1'>
+						<AccordionTrigger onClick={() => setIsOpen((prev) => !prev)} >
+							<div className='line-clamp-5 text-sm text-start font-[400]'>
+								{isOpen ? 'Show less...' : answer}
+							</div>
+						</AccordionTrigger>
+						<AccordionContent>
+                        {answer}
+						</AccordionContent>
+					</AccordionItem>
+				</Accordion>
 			</div>
-
-			<Button className='mt-auto w-full bg-emerald-700 hover:bg-emerald-600'>Read More ...</Button>
 		</div>
 	)
 }
