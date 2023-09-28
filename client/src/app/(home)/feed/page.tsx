@@ -1,9 +1,10 @@
+import { Button } from '@/components/ui/button'
 import { LucidePackageSearch } from 'lucide-react'
 
 export default function Page() {
 	return (
-		<section className='mt-[5rem]'>
-			<div className='mx-auto flex max-w-[30rem] flex-col items-center justify-center  gap-2'>
+		<section className='my-[5rem]'>
+			<div className='mx-auto flex max-w-[30rem] flex-col items-center justify-center gap-2 px-4'>
 				<h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>
 					The Edu Feed
 				</h3>
@@ -11,8 +12,10 @@ export default function Page() {
 				<SeachBar />
 			</div>
 
-			<div className='mt-[1rem] flex w-full items-center justify-center border px-4'>
-				<p>Hello form the feed</p>
+			<div className='mx-auto mt-[2rem] flex flex-col items-center justify-center gap-6 px-4 lg:w-[50%]'>
+				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_) => (
+					<FeedCard />
+				))}
 			</div>
 		</section>
 	)
@@ -26,7 +29,10 @@ const SeachBar = () => {
 			</label>
 			<div className='relative w-full'>
 				<div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
-					<LucidePackageSearch size={22} className='text-emerald-700' />
+					<LucidePackageSearch
+						size={22}
+						className='text-emerald-700'
+					/>
 				</div>
 				<input
 					type='text'
@@ -61,3 +67,21 @@ const SeachBar = () => {
 	)
 }
 
+const FeedCard = () => {
+	return (
+		<div className='flex flex-col justify-between  min-h-[15rem] w-full rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800'>
+			<div>
+				<h5 className='mb-2 text-2xl font-bold tracking-tight text-emerald-600 dark:text-white'>
+					This is my random feed questions
+				</h5>
+
+				<p className='line-clamp-3 font-normal text-gray-700 dark:text-gray-400  md:line-clamp-5'>
+					Here are the biggest enterprise technology acquisitions of
+					2021 so far, in reverse chronological order.
+				</p>
+			</div>
+
+			<Button className='mt-auto w-full bg-emerald-700 hover:bg-emerald-600'>Read More ...</Button>
+		</div>
+	)
+}
