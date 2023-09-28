@@ -7,13 +7,14 @@ import { useEffect, useState } from 'react'
 import { MdDynamicFeed } from 'react-icons/md'
 import { toast } from 'sonner'
 export default function Page() {
-    const [questions, setQuestions] = useState<{question:string;answer:string;_id:string}[]>([])
+	const [questions, setQuestions] = useState<
+		{ question: string; answer: string; _id: string }[]
+	>([])
 	async function getAllQuestions() {
-		const apiUrl = '/api/questions'
+		const apiUrl = 'http://localhost:5000/api/questions'
 		try {
 			const response = await axios.get(apiUrl)
-			console.log(response.data)
-            setQuestions(response.data)
+			setQuestions(response.data.reverse())
 		} catch (err: any) {
 			toast.error(err.response.data.message)
 		}
@@ -47,7 +48,8 @@ export default function Page() {
 					<FeedCard
 						key={curr._id}
 						question={curr.question}
-						answer={curr.answer}					/>
+						answer={curr.answer}
+					/>
 				))}
 			</div>
 		</section>

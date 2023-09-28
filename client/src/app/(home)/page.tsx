@@ -54,14 +54,14 @@ export default function Home() {
 				/>
 
 				<HomeCard
-					title='Stored Solutions'
+					title='Question Database'
 					description='We store solutions to problems for easy access.No need to remember your query to get a previous solution'
 					image={storedImage}
 				/>
 
 				<HomeCard
-					title='Global Search'
-					description='Search for solutions to problems from other users around the world and get solutions other users have provided'
+					title='Access to AI through sms'
+					description='You can access our AI through sms,so you can get solutions to your problems even without internet access'
 					image={searchImage}
 				/>
 
@@ -79,34 +79,34 @@ export default function Home() {
 			<div className='mx-4 mb-[8rem] grid rounded-lg border border-gray-200 shadow-sm dark:border-gray-700 md:grid-cols-2 lg:mx-[20%]'>
 				<TestimonialCard
 					image="https://picsum.photos/id/120/200"
-					title='This is my custom title'
+					title='Developer relations Engineer'
 					name='Jason Blew'
-					description='This is my custom description'
-					role='CTO unknown corp'
+					description='The AI implemantaion is very efficient and fast,with a very high accuracy rate'
+					role='Dev Rel Harshic corp'
 				/>
 
 				<TestimonialCard
 					image="https://picsum.photos/id/129/200"
-					title='This is my custom title'
-					name='Jason Blew'
-					description='This is my custom description'
-					role='CTO unknown corp'
+					title='Software Engineer'
+					name='Brin Kimani'
+					description='I love the simple UI and the ease of use of the platform'
+					role='SE 4 Bongo corp'
 				/>
 
 				<TestimonialCard
 					image="https://picsum.photos/id/124/200"
-					title='This is my custom title'
-					name='Jason Blew'
-					description='This is my custom description'
-					role='CTO unknown corp'
+					title='Home Mentor'
+					name='Martin Kanja'
+					description='I get fast solutions to question from my students'
+					role='Biggest Mentor'
 				/>
 
 				<TestimonialCard
 					image="https://picsum.photos/id/125/200"
-					title='This is my custom title'
-					name='Jason Blew'
-					description='This is my custom description'
-					role='CTO unknown corp'
+					title='CTO'
+					name='Mercy Wanjiru'
+					description='I love the AI implementation and the ease of use of the platform. I use everyday'
+					role='CTO 4 Bongo corp'
 				/>
 			</div>
 		</section>
