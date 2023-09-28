@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import splashImage from '../../../public/edu_splash.svg'
+import solutionImage from '../../../public/ai_powered.svg'
+import searchImage from '../../../public/search.svg'
+import storedImage from '../../../public/stored.svg'
+import feedImage from '../../../public/feed.svg'
 import {
 	MdOutlineKeyboardDoubleArrowDown,
 	MdOutlineWhatshot
@@ -46,25 +50,25 @@ export default function Home() {
 				<HomeCard
 					title='AI Powered Solutions'
 					description='We use artificial intelligence to provide solutions to problems.This makes it fast and efficient'
-					image={splashImage}
+					image={solutionImage}
 				/>
 
 				<HomeCard
 					title='Stored Solutions'
 					description='We store solutions to problems for easy access.No need to remember your query to get a previous solution'
-					image={splashImage}
+					image={storedImage}
 				/>
 
 				<HomeCard
 					title='Global Search'
 					description='Search for solutions to problems from other users around the world and get solutions other users have provided'
-					image={splashImage}
+					image={searchImage}
 				/>
 
 				<HomeCard
 					title='Global Question Feed'
 					description='View questions from other users around the world and provide solutions to them,or learn from the solutions provided by other users'
-					image={splashImage}
+					image={feedImage}
 				/>
 			</div>
 
@@ -74,7 +78,7 @@ export default function Home() {
 
 			<div className='mx-4 mb-[8rem] grid rounded-lg border border-gray-200 shadow-sm dark:border-gray-700 md:grid-cols-2 lg:mx-[20%]'>
 				<TestimonialCard
-					image={splashImage}
+					image="https://picsum.photos/id/120/200"
 					title='This is my custom title'
 					name='Jason Blew'
 					description='This is my custom description'
@@ -82,7 +86,7 @@ export default function Home() {
 				/>
 
 				<TestimonialCard
-					image={splashImage}
+					image="https://picsum.photos/id/129/200"
 					title='This is my custom title'
 					name='Jason Blew'
 					description='This is my custom description'
@@ -90,7 +94,7 @@ export default function Home() {
 				/>
 
 				<TestimonialCard
-					image={splashImage}
+					image="https://picsum.photos/id/124/200"
 					title='This is my custom title'
 					name='Jason Blew'
 					description='This is my custom description'
@@ -98,7 +102,7 @@ export default function Home() {
 				/>
 
 				<TestimonialCard
-					image={splashImage}
+					image="https://picsum.photos/id/125/200"
 					title='This is my custom title'
 					name='Jason Blew'
 					description='This is my custom description'
@@ -123,7 +127,7 @@ const HomeCard = ({ title, description, image }: IHomeCardProps) => {
 				<CardDescription>{description}</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<div className='flex items-center justify-center'>
+				<div className='flex h-[250px] w-[250px] items-center justify-center'>
 					<Image
 						src={image.src}
 						alt='Card image'
@@ -164,7 +168,7 @@ const TestimonialCard = ({
 					className='rounded-full'
 					width={50}
 					height={50}
-					src={image.src}
+					src={image}
 					alt='profile picture'
 				/>
 				<div className='space-y-0.5 text-left font-medium dark:text-white'>

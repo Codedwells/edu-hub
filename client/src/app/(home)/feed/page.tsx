@@ -1,9 +1,28 @@
 'use client'
 
 import { FeedCard } from '@/components/cards/Question'
+import axios from 'axios'
 import { LucidePackageSearch } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { MdDynamicFeed } from 'react-icons/md'
+import { toast } from 'sonner'
 export default function Page() {
+    const [questions, setQuestions] = useState<{question:string;answer:string;_id:string}[]>([])
+	async function getAllQuestions() {
+		const apiUrl = '/api/questions'
+		try {
+			const response = await axios.get(apiUrl)
+			console.log(response.data)
+            setQuestions(response.data)
+		} catch (err: any) {
+			toast.error(err.response.data.message)
+		}
+	}
+
+	useEffect(() => {
+		getAllQuestions()
+	}, [])
+
 	return (
 		<section className='my-[5rem]'>
 			<div className='mx-auto flex max-w-[30rem] flex-col items-center justify-center gap-2 px-4'>
@@ -15,47 +34,20 @@ export default function Page() {
 			</div>
 
 			<div className='mx-auto mt-[2rem] flex flex-col items-center justify-center gap-6 px-4 lg:w-[50%]'>
-				<div className='flex items-center w-full gap-2'>
+				<div className='flex w-full items-center gap-2'>
 					<h3 className='scroll-m-20 text-start text-2xl font-semibold tracking-tight'>
 						Global message feed
 					</h3>
-					<MdDynamicFeed size={22} className="dark:text-emerald-500" />
-				</div>
-				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((curr) => (
-					<FeedCard
-						key={curr}
-						question='This is my wonderful playground that I can ask right now'
-						answer='Here are the biggest enterprise technology
-							acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.ere are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.ere are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.ere are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.ere are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.ere are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.Here are the biggest enterprise
-							technology acquisitions of 2021 so far, in reverse
-							chronological order.
-'
+					<MdDynamicFeed
+						size={22}
+						className='dark:text-emerald-500'
 					/>
+				</div>
+				{questions.map((curr) => (
+					<FeedCard
+						key={curr._id}
+						question={curr.question}
+						answer={curr.answer}					/>
 				))}
 			</div>
 		</section>

@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/theme/theme-provider'
+import { Toaster } from 'sonner'
 import './globals.css'
 
 export default function RootLayout({
@@ -17,6 +18,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body>
+				<Toaster />
 				<ThemeProvider
 					attribute='class'
 					defaultTheme='system'
