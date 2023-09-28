@@ -8,10 +8,10 @@ import {
 	Card,
 	CardContent,
 	CardDescription,
-	CardFooter,
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card'
+import Link from 'next/link'
 
 export default function Home() {
 	return (
@@ -189,9 +189,9 @@ const CallToAction = () => {
 				time of the day.The easiest way to learn.
 			</p>
 			<div className='items-center justify-center space-y-4 sm:flex sm:space-x-4 sm:space-y-0'>
-				<a
-					href='#'
-					className='inline-flex w-full items-center justify-center rounded-lg bg-gray-800 px-4 py-2.5 text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:w-auto'
+				<Link
+					href='/flow/login'
+					className='inline-flex w-full items-center justify-center rounded-lg bg-emerald-700 border border-transparent px-4 py-2.5 text-white hover:bg-emerald-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:border-emerald-600 sm:w-auto'
 				>
 					<MdOutlineWhatshot size={35} />
 
@@ -201,7 +201,7 @@ const CallToAction = () => {
 							Get Started
 						</div>
 					</div>
-				</a>
+				</Link>
 			</div>
 		</div>
 	)

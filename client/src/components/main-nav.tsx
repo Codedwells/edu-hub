@@ -16,18 +16,18 @@ const MainNav = ({ classNames }: { classNames?: string }) => {
 				</li>
 
 				<div className='flex items-center space-x-2'>
-					<li className='flex cursor-pointer items-center space-x-1 underline-offset-2 decoration-emerald-500  hover:underline active:opacity-70'>
+					<Link href="/feed" className='flex cursor-pointer items-center space-x-1 underline-offset-2 decoration-emerald-500  hover:underline active:opacity-70'>
 						<TbBrandFeedly />
 						<p className='text-sm'>Feeds</p>
-					</li>
+					</Link>
 
 					<li>
 						<ModeToggle />
 					</li>
 
-					<li className='rounded border p-2.5 hover:bg-emerald-50 dark:bg-[#020817] dark:hover:bg-gray-900 active:bg-white'>
+					<Link href={"/flow/login"} className='rounded border p-2.5 hover:bg-emerald-50 dark:bg-[#020817] dark:hover:bg-gray-900 active:bg-white'>
 						<FiLogIn className='cursor-pointer' />
-					</li>
+					</Link>
 				</div>
 			</ul>
 		</nav>
