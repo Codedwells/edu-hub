@@ -7,7 +7,7 @@ const MainNav = ({ classNames }: { classNames?: string }) => {
 	return (
 		<nav className={`${classNames}`}>
 			<ul
-				className={`flex select-none items-center bg-white justify-between border-b p-2 px-8 dark:bg-transparent`}
+				className={`flex select-none items-center bg-white justify-between border-b p-2 px-8 dark:bg-gray-800`}
 			>
 				<li>
 					<Link href='/' className='text-xl select-none font-[600]'>
@@ -25,7 +25,7 @@ const MainNav = ({ classNames }: { classNames?: string }) => {
 						<ModeToggle />
 					</li>
 
-					<li className='rounded border p-2.5 hover:bg-emerald-50 active:bg-white'>
+					<li className='rounded border p-2.5 hover:bg-emerald-50 dark:bg-[#020817] dark:hover:bg-gray-900 active:bg-white'>
 						<FiLogIn className='cursor-pointer' />
 					</li>
 				</div>
