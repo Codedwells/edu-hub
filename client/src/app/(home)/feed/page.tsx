@@ -1,14 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { FeedCard } from '@/components/cards/Question'
 import { LucidePackageSearch } from 'lucide-react'
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger
-} from '@/components/ui/accordion'
-
+import { MdDynamicFeed } from 'react-icons/md'
 export default function Page() {
 	return (
 		<section className='my-[5rem]'>
@@ -21,6 +15,12 @@ export default function Page() {
 			</div>
 
 			<div className='mx-auto mt-[2rem] flex flex-col items-center justify-center gap-6 px-4 lg:w-[50%]'>
+				<div className='flex items-center w-full gap-2'>
+					<h3 className='scroll-m-20 text-start text-2xl font-semibold tracking-tight'>
+						Global message feed
+					</h3>
+					<MdDynamicFeed size={22} className="dark:text-emerald-500" />
+				</div>
 				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((curr) => (
 					<FeedCard
 						key={curr}
@@ -105,34 +105,5 @@ const SeachBar = () => {
 				<span className='sr-only'>Search</span>
 			</button>
 		</form>
-	)
-}
-
-interface IFeedCardProps {
-	question: string
-	answer: string
-}
-const FeedCard = ({ question, answer }: IFeedCardProps) => {
-	const [isOpen, setIsOpen] = useState(false)
-	return (
-		<div className='flex min-h-[15rem] w-full  flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800'>
-			<div>
-				<h5 className='mb-2 text-2xl font-bold tracking-tight text-emerald-600 dark:text-white'>
-					This is my random feed questions
-				</h5>
-				<Accordion type='single' collapsible className='w-full'>
-					<AccordionItem value='item-1'>
-						<AccordionTrigger onClick={() => setIsOpen((prev) => !prev)} >
-							<div className='line-clamp-5 text-sm text-start font-[400]'>
-								{isOpen ? 'Show less...' : answer}
-							</div>
-						</AccordionTrigger>
-						<AccordionContent>
-                        {answer}
-						</AccordionContent>
-					</AccordionItem>
-				</Accordion>
-			</div>
-		</div>
 	)
 }
